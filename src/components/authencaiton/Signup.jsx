@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useSignUp from "../../hooks/useSignUp";
 import { Link } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);

@@ -1,8 +1,16 @@
-import React from "react";
 import { FaHome, FaUserAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../../context/AuthContext";
+import { RiLogoutCircleFill } from "react-icons/ri";
+import useLogout from "../../hooks/useLogout";
 
 const UserDashboard = () => {
+  const { userInfo } = useAuthContext();
+  const { logout } = useLogout();
+
+  const handleLogout = () => {
+    logout();
+  };
   return (
     <div className="min-h-screen bg-orange-50">
       {/* Navigation Bar */}
@@ -16,9 +24,20 @@ const UserDashboard = () => {
         </Link>
 
         {/* User Item */}
-        <div className="flex items-center space-x-3 p-3 rounded-lg hover:bg-orange-100 hover:text-orange-500 cursor-pointer transition-all transform hover:scale-105">
-          <FaUserAlt className="text-xl text-orange-600" />
-          <span className="font-medium text-gray-800">User</span>
+        <div className="flex items-center space-x-10 p-3">
+          <div className=" hover:bg-orange-100 hover:text-orange-500 flex space-x-3 rounded-lg cursor-pointer transition-all transform hover:scale-105">
+            <FaUserAlt className="text-xl text-orange-600" />
+            <span className="font-medium text-gray-800">
+              {userInfo.fullName}
+            </span>
+          </div>
+
+          <div className="cursor-pointer" onClick={handleLogout}>
+            <RiLogoutCircleFill
+              size={30}
+              className=" text-orange-600 hover:text-orange-800 "
+            />
+          </div>
         </div>
       </div>
 

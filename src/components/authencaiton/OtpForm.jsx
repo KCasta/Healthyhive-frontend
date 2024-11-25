@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import OTPInput from "react-otp-input";
 import { ClipLoader } from "react-spinners";
 import { useEmailVerify } from "../../hooks/useEmailVerify";
@@ -14,12 +14,6 @@ const OTPPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     verifyOtp(otp);
-
-    // Simulate API call
-    setTimeout(() => {
-      setIsLoading(false);
-      alert(`OTP Submitted: ${otp}`);
-    }, 2000);
   };
 
   return (
@@ -74,7 +68,7 @@ const OTPPage = () => {
         {/* Didn't receive the OTP? */}
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-600">
-            Didn't receive the OTP?{" "}
+            {`Didn't receive the OTP?`}
             <button className="text-orange-600 font-semibold hover:underline">
               Resend
             </button>

@@ -1,6 +1,5 @@
-import React from "react";
 // import NavBarLayOut from "./layouts/NavBarLayOut";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import MainLayout from "./layouts/MainLayout";
 import SignupPage from "./pages/SignupPage";

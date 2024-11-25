@@ -28,6 +28,7 @@ const useSignUp = () => {
       console.log(data);
       //store the verification token in session storage
       sessionStorage.setItem("verificationToken", data.verificationToken);
+
       toast.success(`Verification email sent to ${values.email}`);
       navigate("/auth/verify-email");
       //set loading to false to hide loading spinner

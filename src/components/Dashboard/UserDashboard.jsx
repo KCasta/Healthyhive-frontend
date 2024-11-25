@@ -1,6 +1,9 @@
 import React from "react";
 import { FaHome, FaUserAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import MealPlan from "../../assets/MealPlan.jpg";
+import Nutri from "../../assets/Nutri.jpg";
+import Recipes from "../../assets/Repcies.jpg";
 
 const UserDashboard = () => {
   return (
@@ -37,8 +40,8 @@ const UserDashboard = () => {
           <div className="bg-white border-2 border-gray-300 rounded-lg shadow-lg p-6 flex flex-col items-center hover:shadow-2xl hover:scale-105 hover:border-orange-500 transition-transform duration-300 ease-in-out">
             <div className="w-24 h-24 rounded-full bg-orange-100 flex items-center justify-center mb-4">
               <img
-                src="https://via.placeholder.com/100"
-                alt="Placeholder"
+                src={Recipes}
+                alt="Recipes"
                 className="rounded-full object-cover"
               />
             </div>
@@ -56,8 +59,8 @@ const UserDashboard = () => {
           <div className="bg-white border-2 border-gray-300 rounded-lg shadow-lg p-6 flex flex-col items-center hover:shadow-2xl hover:scale-105 hover:border-orange-500 transition-transform duration-300 ease-in-out">
             <div className="w-24 h-24 rounded-full bg-orange-100 flex items-center justify-center mb-4">
               <img
-                src="https://via.placeholder.com/100"
-                alt="Placeholder"
+                src={MealPlan}
+                alt="MealPlan"
                 className="rounded-full object-cover"
               />
             </div>
@@ -75,8 +78,8 @@ const UserDashboard = () => {
           <div className="bg-white border-2 border-gray-300 rounded-lg shadow-lg p-6 flex flex-col items-center hover:shadow-2xl hover:scale-105 hover:border-orange-500 transition-transform duration-300 ease-in-out">
             <div className="w-24 h-24 rounded-full bg-orange-100 flex items-center justify-center mb-4">
               <img
-                src="https://via.placeholder.com/100"
-                alt="Placeholder"
+                src={Nutri}
+                alt="Nutri"
                 className="rounded-full object-cover"
               />
             </div>

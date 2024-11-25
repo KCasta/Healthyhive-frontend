@@ -3,6 +3,7 @@ import { FaHeadset } from "react-icons/fa";
 import { FaAppleAlt } from "react-icons/fa";
 import { GiForkKnifeSpoon } from "react-icons/gi";
 import { BiBarChartAlt2 } from "react-icons/bi";
+import CustomerCare from "../../assets/CustomerCare.jpg";
 
 const Services = () => {
   return (
@@ -87,8 +88,8 @@ const Services = () => {
         <div className="md:w-1/2">
           <div className="relative">
             <img
-              src="https://via.placeholder.com/500x400"
-              alt="Interior Design"
+              src={CustomerCare}
+              alt="CustomerCare"
               className="rounded-lg shadow-lg"
             />
             <div className="absolute top-4 right-4">

@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://healthyhive-backend-3.onrender.com",
+        target: "http://localhost:8022",
         changeOrigin: true,
         secure: false,
       },

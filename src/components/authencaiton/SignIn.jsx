@@ -3,13 +3,16 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useLogin from "../../hooks/useLogin";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { isLoading, error, handleLogin } = useLogin();
 
+  // Toggle password visibility
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
-  // Validation Schema
+  // Validation Schema using Yup
   const validationSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email address")
@@ -19,15 +22,20 @@ const Login = () => {
       .required("Password is required"),
   });
 
-  // Initial Values
+  // Initial form values
   const initialValues = {
     email: "",
     password: "",
   };
 
-  const handleSubmit = (values) => {
-    console.log("Login Submitted", values);
-    // Handle form submission logic here
+  // Submit handler
+  const onSubmit = async (values, { setSubmitting, resetForm }) => {
+    // Call the handleLogin function from the useLogin hook
+    await handleLogin(values.email, values.password);
+
+    // Reset the form upon successful login
+    resetForm();
+    setSubmitting(false);
   };
 
   return (
@@ -43,11 +51,11 @@ const Login = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={handleSubmit}
+          onSubmit={onSubmit}
         >
-          {() => (
+          {({ isSubmitting }) => (
             <Form className="space-y-4">
-              {/* Email */}
+              {/* Email Field */}
               <div>
                 <label
                   htmlFor="email"
@@ -69,7 +77,7 @@ const Login = () => {
                 />
               </div>
 
-              {/* Password */}
+              {/* Password Field */}
               <div className="relative">
                 <label
                   htmlFor="password"
@@ -100,19 +108,29 @@ const Login = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full px-4 py-2 text-white bg-orange-600 rounded-md hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-300"
+                className={`w-full px-4 py-2 text-white rounded-md ${
+                  isSubmitting || isLoading
+                    ? "bg-orange-400 cursor-not-allowed"
+                    : "bg-orange-600 hover:bg-orange-700"
+                } focus:outline-none focus:ring-2 focus:ring-orange-300`}
+                disabled={isSubmitting || isLoading}
               >
-                Login
+                {isLoading ? "Logging in..." : "Login"}
               </button>
+
+              {/* Error Message */}
+              {error && (
+                <p className="text-red-500 text-center mt-2">{error}</p>
+              )}
             </Form>
           )}
         </Formik>
 
-        {/* Don't have an account? */}
+        {/* Don’t have an account */}
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-600">
             Don’t have an account?{" "}
-            <Link to="/SignupPage">
+            <Link to="/auth/signup">
               <button className="text-orange-600 font-semibold hover:underline">
                 Sign Up
               </button>

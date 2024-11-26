@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import happy from "../../assets/happy.jpg";
 
 const MealPlanner = () => {
   return (
@@ -21,8 +22,8 @@ const MealPlanner = () => {
       {/* Image Section */}
       <div className="relative w-[18rem] md:w-[22rem] lg:w-[28rem] h-[22rem] md:h-[28rem] lg:h-[32rem] shadow-lg rounded-tl-[120px] rounded-tr-[120px] overflow-hidden border-4 border-black mr-8 animate-float">
         <img
-          src="https://via.placeholder.com/400" // Replace with your image URL
-          alt="Decorative"
+          src={happy} // Replace with your image URL
+          alt="happy"
           className="w-full h-full object-cover"
         />
       </div>

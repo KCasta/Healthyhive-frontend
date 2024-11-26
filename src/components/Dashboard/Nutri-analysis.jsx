@@ -1,7 +1,26 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 
 const Nutri = () => {
+  const [query, setQuery] = useState("");
+  const [nutritionData, setNutritionData] = useState(null);
+
+  const fetchNutri = async () => {
+    const APP_ID = import.meta.env.VITE_APP_ID;
+    const APP_KEY = import.meta.env.VITE_API_KEY;
+
+    try {
+      const url = `https://api.edamam.com/api/nutrition-data?ingr=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`;
+
+      const response = await axios.get(url);
+
+      console.log(response.data);
+      setNutritionData(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div className="min-h-screen bg-gradient-to-r from-orange-200 via-orange-100 to-orange-50 flex items-center justify-center relative">
       {/* Navigation Buttons */}
@@ -33,7 +52,7 @@ const Nutri = () => {
         <div className="w-full p-12 bg-white bg-opacity-80 rounded-xl shadow-2xl">
           {/* Header */}
           <h1 className="text-4xl font-bold text-orange-600 mb-6">
-            Let's Get Started!
+            {`Let's Get Started!`}
           </h1>
           <p className="text-md text-gray-700 mb-6 leading-relaxed">
             Begin your journey with us by filling out the form below. We’ll get
@@ -55,6 +74,10 @@ const Nutri = () => {
           <div className="space-y-6">
             {/* Message Input */}
             <textarea
+              //GETTING THE VALUE OF THE TEXTAREA AND SETTING IT TO QUERY
+              onChange={(e) => {
+                setQuery(e.target.value);
+              }}
               placeholder="Message"
               className="w-full p-2 text-sm rounded-lg border border-gray-500 text-black focus:outline-none focus:ring-2 focus:ring-orange-500 transition-transform transform hover:scale-105 hover:border-orange-500 hover:shadow-lg"
               rows="4"
@@ -62,7 +85,10 @@ const Nutri = () => {
 
             {/* Submit Button */}
             <div className="flex justify-end">
-              <button className="mt-4 px-6 py-2 rounded-lg bg-orange-500 text-white font-bold hover:bg-black hover:text-orange-500 hover:scale-105 transition-all">
+              <button
+                className="mt-4 px-6 py-2 rounded-lg bg-orange-500 text-white font-bold hover:bg-black hover:text-orange-500 hover:scale-105 transition-all"
+                onClick={fetchNutri}
+              >
                 Submit
               </button>
             </div>

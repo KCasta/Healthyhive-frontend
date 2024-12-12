@@ -4,13 +4,7 @@ import react from "@vitejs/plugin-react";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // server: {
-  //   proxy: {
-  //     "/api": {
-  //       target: "http://localhost:8022",
-  //       changeOrigin: true,
-  //       secure: false,
-  //     },
-  //   },
-  // },
+  build: {
+    outDir: "dist", // Default is 'dist', but ensure this matches your output folder.
+  },
 });

@@ -24,6 +24,7 @@ const Nutri = () => {
   return (
     <div className="min-h-screen bg-gradient-to-r from-orange-200 via-orange-100 to-orange-50 flex items-center justify-center relative">
       {/* Navigation Buttons */}
+      {console.log(nutritionData)}
       <div className="absolute top-4 right-4 flex space-x-4">
         <Link to="/meal-plan">
           <button className="px-4 py-2 rounded-lg bg-orange-500 text-white font-bold hover:bg-black hover:text-orange-500 transition-all">

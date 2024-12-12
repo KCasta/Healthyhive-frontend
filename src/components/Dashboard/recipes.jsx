@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 const Recipes = () => {
   return (
@@ -32,7 +31,7 @@ const Recipes = () => {
         <div className="w-full p-12 bg-white bg-opacity-80 rounded-xl shadow-2xl">
           {/* Header */}
           <h1 className="text-4xl font-bold text-orange-600 mb-6">
-            Let's Get Started!
+            {`Let's Get Started!`}
           </h1>
           <p className="text-md text-gray-700 mb-6 leading-relaxed">
             Begin your journey with us by filling out the form below. We’ll get

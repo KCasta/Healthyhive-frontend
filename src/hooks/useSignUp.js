@@ -2,6 +2,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 //import useNavigate to naviagte to verify email page on signup success
 import { useNavigate } from "react-router-dom";
+import AuthService from "../services/AuthService";
 
 const useSignUp = () => {
   const [loading, setLoading] = useState(false);
@@ -12,19 +13,14 @@ const useSignUp = () => {
     setLoading(true);
     try {
       // make API call to sign up user
-      const response = await fetch("/api/v1/auth/create-user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.message);
-      }
+      const response = await AuthService.register(values);
 
-      const data = await response.json();
+      if (response.status !== 200) {
+        console.log(response);
+        throw new Error(response.data.message);
+      }
+      const data = response.data;
+
       console.log(data);
       //store the verification token in session storage
       sessionStorage.setItem("verificationToken", data.verificationToken);

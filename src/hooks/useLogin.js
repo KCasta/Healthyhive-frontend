@@ -2,6 +2,7 @@ import { useAuthContext } from "../context/AuthContext";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import AuthService from "../services/AuthService";
 
 const useLogin = () => {
   const [email, setEmail] = useState("");
@@ -18,19 +19,25 @@ const useLogin = () => {
     setError(null);
 
     try {
-      const response = await fetch("/api/v1/auth/login-user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      // const response = await fetch("/api/v1/auth/login-user", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({ email, password }),
+      // });
 
-      const data = await response.json();
+      // const data = await response.json();
 
-      if (!response.ok) {
-        throw new Error(data.message || "An error occurred. Please try again.");
+      // if (!response.ok) {
+      //   throw new Error(data.message || "An error occurred. Please try again.");
+      // }
+      const response = await AuthService.login({ email, password });
+
+      if (response.status !== 200) {
+        throw new Error(response.data.message);
       }
+      const data = response.data;
 
       if (data.verificationToken) {
         // Save the verification token in session storage

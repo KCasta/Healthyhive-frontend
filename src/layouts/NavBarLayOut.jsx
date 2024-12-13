@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll"; // Import from react-scroll
 import "./NavBar.css";
 
 function NavBarLayOut() {
@@ -11,7 +12,7 @@ function NavBarLayOut() {
 
   return (
     <>
-      <nav className="flex flex-row justify-between items-center py-4 px-8 bg-orange-100 shadow-md">
+      <nav className="flex flex-row justify-between items-center py-4 px-8 bg-orange-100 shadow-xl sticky top-0 z-50">
         {/* Logo */}
         <div className="text-2xl font-bold text-orange-500">
           <Link to="/">
@@ -23,18 +24,24 @@ function NavBarLayOut() {
 
         {/* Desktop Links */}
         <div className="hidden md:flex space-x-8 font-semibold">
-          <Link
-            to="/Services"
+          <ScrollLink
+            to="services" // Link to the 'services' section ID
+            smooth={true}
+            offset={-50} // Optional: Adjust scroll position to account for navbar height
+            duration={500} // Optional: Scroll duration in ms
             className="text-gray-700 hover:text-orange-500 transition-colors"
           >
             Services
-          </Link>
-          <Link
-            to="/About"
+          </ScrollLink>
+          <ScrollLink
+            to="about" // Link to the 'about' section ID
+            smooth={true}
+            offset={-50}
+            duration={500}
             className="text-gray-700 hover:text-orange-500 transition-colors"
           >
             About
-          </Link>
+          </ScrollLink>
           <Link
             to="/auth/signin"
             className="text-gray-700 hover:text-orange-500 transition-colors"
@@ -81,20 +88,26 @@ function NavBarLayOut() {
               : "opacity-0 scale-95 pointer-events-none"
           }`}
         >
-          <Link
-            to="/Services"
+          <ScrollLink
+            to="services"
+            smooth={true}
+            offset={-50}
+            duration={500}
             onClick={toggleMenu}
             className="text-gray-700 hover:text-orange-500 transition-colors"
           >
             Services
-          </Link>
-          <Link
-            to="/About"
+          </ScrollLink>
+          <ScrollLink
+            to="about"
+            smooth={true}
+            offset={-50}
+            duration={500}
             onClick={toggleMenu}
             className="text-gray-700 hover:text-orange-500 transition-colors"
           >
             About
-          </Link>
+          </ScrollLink>
           <Link
             to="/auth/signin"
             onClick={toggleMenu}

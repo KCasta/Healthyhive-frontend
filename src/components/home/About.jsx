@@ -1,24 +1,21 @@
 import React from "react";
-import nutirent from "../../assets/nutirent.avif";
 import { FaPercent, FaShieldAlt, FaTachometerAlt } from "react-icons/fa";
 
 const About = () => {
   return (
-    <section className="py-16 bg-white text-center">
+    <section id="about" className="py-16 bg-white text-center">
+      {" "}
+      {/* Add id here */}
       <h1 className="text-2xl font-bold text-orange-600">About Us</h1>
-
       <p className="text-gray-600 max-w-xl mx-auto mt-2">
-        HealthyHive is an innovative nutrition platform designed to empower
-        individuals with personalized meal planning, expert guidance, and
-        supportive community. Our mission is to make healthy eating accessible,
-        manageable, and sustainable for individuals with dietary restrictions
-        and health conditions.
+        HealthyHive is a personalized nutrition platform that makes healthy
+        eating easy. We offer personalized meal plans, recipes, and wellness
+        programs to help you achieve your health goals.
       </p>
-
       {/* Cards */}
-      <div className="mt-10 flex flex-col md:flex-row items-center justify-center gap-8 px-4">
+      <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-8 px-4">
         {/* Card 1 */}
-        <div className="group bg-orange-100 rounded-lg shadow-lg p-6 w-full md:w-1/3 transition-transform transform hover:scale-105 hover:bg-orange-500 hover:shadow-xl">
+        <div className="group bg-orange-100 rounded-lg shadow-lg p-6 w-full sm:w-1/3 transition-transform transform hover:scale-105 hover:bg-orange-500 hover:shadow-xl">
           <div className="text-5xl text-orange-500 mb-4 transition-transform transform group-hover:text-white hover:scale-110">
             <FaPercent />
           </div>
@@ -33,7 +30,7 @@ const About = () => {
         </div>
 
         {/* Card 2 */}
-        <div className="group bg-orange-200 rounded-lg shadow-lg p-6 w-full md:w-1/3 transition-transform transform hover:scale-105 hover:bg-orange-600 hover:shadow-xl">
+        <div className="group bg-orange-200 rounded-lg shadow-lg p-6 w-full sm:w-1/3 transition-transform transform hover:scale-105 hover:bg-orange-600 hover:shadow-xl">
           <div className="text-5xl text-orange-600 mb-4 transition-transform transform group-hover:text-white hover:scale-110">
             <FaShieldAlt />
           </div>
@@ -49,7 +46,7 @@ const About = () => {
         </div>
 
         {/* Card 3 */}
-        <div className="group bg-orange-300 rounded-lg shadow-lg p-6 w-full md:w-1/3 transition-transform transform hover:scale-105 hover:bg-orange-700 hover:shadow-xl">
+        <div className="group bg-orange-300 rounded-lg shadow-lg p-6 w-full sm:w-1/3 transition-transform transform hover:scale-105 hover:bg-orange-700 hover:shadow-xl">
           <div className="text-5xl text-orange-700 mb-4 transition-transform transform group-hover:text-white hover:scale-110">
             <FaTachometerAlt />
           </div>
@@ -65,12 +62,6 @@ const About = () => {
           </p>
         </div>
       </div>
-      {/* <div
-        className="relative h-52 bg-cover bg-center mt-16 rounded-lg shadow-lg "
-        style={{ backgroundImage: `url(${nutirent}` }}
-      >
-        <div className="absolute inset-0 bg-orange-500  bg-opacity-85"></div>
-      </div> */}
     </section>
   );
 };

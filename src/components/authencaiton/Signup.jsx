@@ -48,8 +48,16 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-orange-100 via-orange-200 to-orange-300">
-      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-orange-200 via-orange-300 to-orange-300">
+      <div
+        className="relative w-full max-w-md p-8 rounded-lg shadow-lg"
+        style={{
+          background: "rgba(255, 255, 255, 0.1)",
+          backdropFilter: "blur(10px)",
+          WebkitBackdropFilter: "blur(10px)",
+          border: "1px solid rgba(255, 255, 255, 0.3)",
+        }}
+      >
         <h1 className="text-2xl font-bold text-orange-600 text-center">
           Sign Up
         </h1>
@@ -69,7 +77,7 @@ const SignUp = () => {
               <div>
                 <label
                   htmlFor="fullname"
-                  className="text-sm font-semibold text-gray-600"
+                  className="text-sm font-semibold text-gray-800"
                 >
                   Full Name
                 </label>
@@ -78,7 +86,7 @@ const SignUp = () => {
                   id="fullname"
                   name="fullName"
                   placeholder="Enter your full name"
-                  className="w-full px-4 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-300"
+                  className="w-full px-4 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-300 bg-inherit"
                 />
                 <ErrorMessage
                   name="fullName"
@@ -91,7 +99,7 @@ const SignUp = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="text-sm font-semibold text-gray-600"
+                  className="text-sm font-semibold text-gray-800"
                 >
                   Email Address
                 </label>
@@ -100,7 +108,7 @@ const SignUp = () => {
                   id="email"
                   name="email"
                   placeholder="Enter your email"
-                  className="w-full px-4 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-300"
+                  className="w-full px-4 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-300 bg-inherit"
                 />
                 <ErrorMessage
                   name="email"
@@ -113,7 +121,7 @@ const SignUp = () => {
               <div className="relative">
                 <label
                   htmlFor="password"
-                  className="text-sm font-semibold text-gray-600"
+                  className="text-sm font-semibold text-gray-800"
                 >
                   Password
                 </label>
@@ -122,7 +130,7 @@ const SignUp = () => {
                   id="password"
                   name="password"
                   placeholder="Enter your password"
-                  className="w-full px-4 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-300"
+                  className="w-full px-4 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-300 bg-inherit"
                 />
                 <div
                   className="absolute top-10 right-3 text-gray-500 cursor-pointer"
@@ -141,7 +149,7 @@ const SignUp = () => {
               <div className="relative">
                 <label
                   htmlFor="confirmPassword"
-                  className="text-sm font-semibold text-gray-600"
+                  className="text-sm font-semibold text-gray-800"
                 >
                   Confirm Password
                 </label>
@@ -150,7 +158,7 @@ const SignUp = () => {
                   id="confirmPassword"
                   name="confirmPassword"
                   placeholder="Confirm your password"
-                  className="w-full px-4 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-300"
+                  className="w-full px-4 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-300  bg-inherit"
                 />
                 <div
                   className="absolute top-10 right-3 text-gray-500 cursor-pointer"
@@ -169,7 +177,7 @@ const SignUp = () => {
               <div>
                 <label
                   htmlFor="gender"
-                  className="text-sm font-semibold text-gray-600"
+                  className="text-sm font-semibold text-gray-800"
                 >
                   Gender
                 </label>
@@ -177,7 +185,7 @@ const SignUp = () => {
                   as="select"
                   id="gender"
                   name="gender"
-                  className="w-full px-4 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-300"
+                  className="w-full px-4 py-2 mt-1 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-300 text-gray-500 bg-inherit"
                 >
                   <option value="" disabled>
                     Select your gender

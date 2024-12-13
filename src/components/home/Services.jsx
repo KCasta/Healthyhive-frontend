@@ -7,14 +7,16 @@ import CustomerCare from "../../assets/CustomerCare.jpg";
 
 const Services = () => {
   return (
-    <section className="py-16 bg-white">
+    <section id="services" className="py-16 bg-white">
+      {" "}
+      {/* Add an id here */}
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
         {/* Left Content */}
-        <div className="md:w-1/2">
+        <div className="w-full md:w-1/2">
           <h1 className="text-2xl font-bold text-orange-600">Our Services</h1>
           <p className="text-gray-700 mt-2">
-            At HealthyHive, we offer personalized nutrition solutions to help
-            you achieve optimal wellness.
+            At HealthyHive, we offer personalized nutrition plans, recipes, and
+            wellness programs to help you achieve your health goals.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
             {/* Feature 1 */}
@@ -41,10 +43,10 @@ const Services = () => {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-black">
-                  Meal Planning for Specific Diets
+                  Recipes & Dietary Needs
                 </h3>
                 <p className="text-gray-600 mt-1">
-                  Gluten-free, vegan, vegetarian, and other dietary needs
+                  Access to a wide range of healthy recipes and meal ideas{" "}
                   <br /> Expert guidance for managing chronic conditions
                 </p>
               </div>
@@ -60,7 +62,7 @@ const Services = () => {
                   24/7 Support
                 </h3>
                 <p className="text-gray-600 mt-1">
-                  At HealthyPlate, we're committed to providing exceptional
+                  At HealthyHive, we're committed to providing exceptional
                   support whenever you need it.
                 </p>
               </div>
@@ -84,8 +86,8 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Right Image */}
-        <div className="md:w-1/2">
+        {/* Right Image - Hidden on Small Screens */}
+        <div className="hidden md:block w-full md:w-1/2">
           <div className="relative">
             <img
               src={CustomerCare}

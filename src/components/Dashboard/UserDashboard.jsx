@@ -131,7 +131,7 @@ const UserDashboard = () => {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-12 flex flex-col">
           {/* Top Button */}
           <div className="absolute top-4 right-4">
-            <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-full shadow-md transition-transform transform hover:scale-105">
+            <button className="bg-green-900 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-full shadow-md transition-transform transform hover:scale-105">
               Start Using
             </button>
           </div>
